@@ -1,84 +1,103 @@
 package com.sys.entity.sys;
 
+import java.util.Date;
 import org.springframework.format.annotation.DateTimeFormat;
-import org.springframework.stereotype.Component;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import java.util.Date;
+
+import org.springframework.stereotype.Component;
 
 /**
- * sysUser 实体类 Mon Oct 09 16:32:00 CST 2017 孙文祥
+ * sysUser 实体类
+ * Fri Dec 29 14:13:29 CST 2017 孙文祥
  */
 @Component
 @Entity
 @Table(name = "sys_user")
 public class SysUser {
 
-	/** 分享id */
-	@Id
-	@Column(name = "id", length = 32)
+    /***/
+    @Id
+    @Column(name = "id", length = 32)
 	private String id;
 
-	/** 用户名 */
-	@Column(name = "username", length = 64)
+	/**用户名*/
+    @Column(name = "username", length = 64)
 	private String username;
 
-	/***/
-	@Column(name = "realname", length = 64)
+	/**真实姓名*/
+    @Column(name = "realname", length = 64)
 	private String realname;
 
-	/** 昵称 */
-	@Column(name = "nickname", length = 64)
+	/**昵称*/
+    @Column(name = "nickname", length = 64)
 	private String nickname;
 
-	/** 密码 */
-	@Column(name = "password", length = 255)
+	/**密码*/
+    @Column(name = "password", length = 255)
 	private String password;
 
-	/** 联系电话 */
-	@Column(name = "phone", length = 16)
+	/**联系电话*/
+    @Column(name = "phone", length = 16)
 	private String phone;
 
-	/** 邮箱 */
-	@Column(name = "email", length = 64)
+	/**邮箱*/
+    @Column(name = "email", length = 64)
 	private String email;
 
-	/** 生日 */
-	@Column(name = "birthday", length = 19)
+	/**生日*/
+    @Column(name = "birthday", length = 19)
 	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
 	private Date birthday;
 
-	/** 性别 0不详 1男 2女 */
-	@Column(name = "geneder", length = 2)
+	/**性别 0不详 1男  2女*/
+    @Column(name = "geneder", length = 2)
 	private String geneder;
 
-	/** 注册时间 */
-	@Column(name = "reg_time", length = 19)
+	/**注册时间*/
+    @Column(name = "reg_time", length = 19)
 	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
 	private Date regTime;
 
-	/** 部门id */
-	@Column(name = "dept_id", length = 32)
+	/**部门id*/
+    @Column(name = "dept_id", length = 32)
 	private String deptId;
 
-	/** 1可用 0禁用 */
-	@Column(name = "status", length = 2)
-	private String status;
-
-	/***/
-	@Column(name = "remark", length = 255)
+	/**描述*/
+    @Column(name = "remark", length = 255)
 	private String remark;
 
-	public SysUser() {
-		super();
-	}
+	/**1正常   0禁用 2删除*/
+    @Column(name = "status", length = 2)
+    private String status;
 
-	public SysUser(String id, String username, String realname, String nickname, String password, String phone,
-			String email, Date birthday, String geneder, Date regTime, String deptId, String status, String remark) {
-		super();
+    /**
+     * 更新着
+     */
+    @Column(name = "operator", length = 64)
+    private String operator;
+
+    /**
+     * 最后一次更新的时间
+     */
+    @Column(name = "operate_time", length = 19)
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    private Date operateTime;
+
+    /**
+     * 最后一次更新的ip
+     */
+    @Column(name = "operate_ip", length = 20)
+    private String operateIp;
+
+    public SysUser() {
+        super();
+    }
+
+    public SysUser(String id, String username, String realname, String nickname, String password, String phone, String email, Date birthday, String geneder, Date regTime, String deptId, String remark, String status, String operator, Date operateTime, String operateIp) {
+        super();
 		this.id = id;
 		this.username = username;
 		this.realname = realname;
@@ -90,145 +109,176 @@ public class SysUser {
 		this.geneder = geneder;
 		this.regTime = regTime;
 		this.deptId = deptId;
-		this.status = status;
-		this.remark = remark;
-	}
+        this.remark = remark;
+        this.status = status;
+        this.operator = operator;
+        this.operateTime = operateTime;
+        this.operateIp = operateIp;
+    }
 
-	public void setId(String id) {
+    public void setId(String id) {
 
-		this.id = id;
-	}
+        this.id=id;
+    }
 
 	public String getId() {
 
-		return id;
-	}
+        return id;
+    }
 
-	public void setUsername(String username) {
+    public void setUsername(String username) {
 
-		this.username = username;
-	}
+        this.username = username;
+    }
 
 	public String getUsername() {
 
-		return username;
-	}
+        return username;
+    }
 
-	public void setRealname(String realname) {
+    public void setRealname(String realname) {
 
-		this.realname = realname;
-	}
+        this.realname = realname;
+    }
 
 	public String getRealname() {
 
-		return realname;
-	}
+        return realname;
+    }
 
-	public void setNickname(String nickname) {
+    public void setNickname(String nickname) {
 
-		this.nickname = nickname;
-	}
+        this.nickname = nickname;
+    }
 
 	public String getNickname() {
 
-		return nickname;
-	}
+        return nickname;
+    }
 
-	public void setPassword(String password) {
+    public void setPassword(String password) {
 
-		this.password = password;
-	}
+        this.password = password;
+    }
 
 	public String getPassword() {
 
-		return password;
-	}
+        return password;
+    }
 
-	public void setPhone(String phone) {
+    public void setPhone(String phone) {
 
-		this.phone = phone;
-	}
+        this.phone = phone;
+    }
 
 	public String getPhone() {
 
-		return phone;
-	}
+        return phone;
+    }
 
-	public void setEmail(String email) {
+    public void setEmail(String email) {
 
-		this.email = email;
-	}
+        this.email = email;
+    }
 
 	public String getEmail() {
 
-		return email;
-	}
+        return email;
+    }
 
-	public void setBirthday(Date birthday) {
+    public void setBirthday(Date birthday) {
 
-		this.birthday = birthday;
-	}
+        this.birthday = birthday;
+    }
 
 	public Date getBirthday() {
 
-		return birthday;
-	}
+        return birthday;
+    }
 
-	public void setGeneder(String geneder) {
+    public void setGeneder(String geneder) {
 
-		this.geneder = geneder;
-	}
+        this.geneder = geneder;
+    }
 
 	public String getGeneder() {
 
-		return geneder;
-	}
+        return geneder;
+    }
 
-	public void setRegTime(Date regTime) {
+    public void setRegTime(Date regTime) {
 
-		this.regTime = regTime;
-	}
+        this.regTime = regTime;
+    }
 
 	public Date getRegTime() {
 
-		return regTime;
-	}
+        return regTime;
+    }
 
-	public void setDeptId(String deptId) {
+    public void setDeptId(String deptId) {
 
-		this.deptId = deptId;
-	}
+        this.deptId = deptId;
+    }
 
 	public String getDeptId() {
 
-		return deptId;
-	}
+        return deptId;
+    }
 
-	public void setStatus(String status) {
+    public void setRemark(String remark) {
 
-		this.status = status;
-	}
+        this.remark = remark;
+    }
 
-	public String getStatus() {
+    public String getRemark() {
 
-		return status;
-	}
+        return remark;
+    }
 
-	public void setRemark(String remark) {
+    public void setStatus(String status) {
 
-		this.remark = remark;
-	}
+        this.status = status;
+    }
 
-	public String getRemark() {
+    public String getStatus() {
 
-		return remark;
-	}
+        return status;
+    }
 
-	@Override
-	public String toString() {
-		return "SysUser [id=" + id + ", username=" + username + ", realname=" + realname + ", nickname=" + nickname
-				+ ", password=" + password + ", phone=" + phone + ", email=" + email + ", birthday=" + birthday
-				+ ", geneder=" + geneder + ", regTime=" + regTime + ", deptId=" + deptId + ", status=" + status
-				+ ", remark=" + remark + "]";
-	}
+    public void setOperator(String operator) {
+
+        this.operator = operator;
+    }
+
+    public String getOperator() {
+
+        return operator;
+    }
+
+    public void setOperateTime(Date operateTime) {
+
+        this.operateTime = operateTime;
+    }
+
+    public Date getOperateTime() {
+
+        return operateTime;
+    }
+
+    public void setOperateIp(String operateIp) {
+
+        this.operateIp = operateIp;
+    }
+
+    public String getOperateIp(){
+
+        return operateIp;
+    }
+
+    @Override
+    public String toString() {
+        return "SysUser [id=" + id + ", username=" + username + ", realname=" + realname + ", nickname=" + nickname + ", password=" + password + ", phone=" + phone + ", email=" + email + ", birthday=" + birthday + ", geneder=" + geneder + ", regTime=" + regTime + ", deptId=" + deptId + ", remark=" + remark + ", status=" + status + ", operator=" + operator + ", operateTime=" + operateTime + ", operateIp=" + operateIp + "]";
+    }
 }
+

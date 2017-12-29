@@ -4,13 +4,11 @@ import com.core.common.utill.IdToolUtil;
 import com.sys.entity.index.ViewImgUrl;
 import com.sys.entity.index.ViewShare;
 import com.sys.entity.resdata.JSONResponse;
-import com.sys.entity.user.User;
 import com.sys.entity.user.UserInfo;
 import com.sys.repository.index.ViewImgUrlRepositoryImp;
 import com.sys.repository.index.ViewShareRepositoryImp;
 import com.sys.service.index.IndexService;
 import com.sys.service.user.UserInfoService;
-import com.sys.service.user.UserService;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -48,12 +46,8 @@ public class Index {
 	private String imgRealPath;
 
 	@Autowired
-	private UserService userService;
-	@Autowired
 	private UserInfoService userInfoService;
 
-	@Autowired
-	private User user;
 	@Autowired
 	private UserInfo userInfo;
 	@Autowired
@@ -70,7 +64,6 @@ public class Index {
 			@RequestParam(value = "passWord", defaultValue = "") String passWord, ModelMap data,
 			HttpServletRequest request, ModelMap model) {
 
-		user.setUserName(userName);
 
 		// =================================
 		List<UserInfo> info = userInfoService.findById("37c0c52095164aa4981f4aafd6a8354b");

@@ -2,10 +2,8 @@ package com.core.security;
 
 import com.alibaba.fastjson.JSON;
 import com.core.common.utill.EmptyUtils;
-import com.sys.entity.sys.SysResources;
 import com.sys.entity.sys.SysRole;
 import com.sys.entity.sys.SysUser;
-import com.sys.repository.sys.SysResourcesRepositoryImp;
 import com.sys.repository.sys.SysRoleRepositoryImp;
 import com.sys.repository.sys.SysUserRepositoryImp;
 import org.apache.log4j.Logger;
@@ -24,8 +22,6 @@ public class MySecurityDaoImp {
 	@Autowired
 	private SysUserRepositoryImp sysUserRepositoryImp;
 
-	@Autowired
-	private SysResourcesRepositoryImp sysResourcesRepositoryImp;
 
 	@Autowired
 	private SysRoleRepositoryImp sysRoleRepositoryImp;
@@ -63,7 +59,7 @@ public class MySecurityDaoImp {
 
 	}
 
-	public Map<String, List<SysResources>> findResource() {
+	/*public Map<String, List<SysResources>> findResource() {
 		// 存储角色与资源的对应关系
 		Map<String, List<SysResources>> roletypes = new HashMap<String, List<SysResources>>();
 		// 存储角色名称列表
@@ -80,6 +76,6 @@ public class MySecurityDaoImp {
 		}
 		log.debug("权限资源相应关系:" + JSON.toJSONString(roletypes));
 		return roletypes;
-	}
+	}*/
 
 }

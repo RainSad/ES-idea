@@ -1,7 +1,6 @@
 package com.core.security;
 
 import com.alibaba.fastjson.JSON;
-import com.sys.entity.sys.SysResources;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.ConfigAttribute;
@@ -38,7 +37,7 @@ public class MySecurityMetadataSource implements FilterInvocationSecurityMetadat
 
 	// 载入全部资源与权限的关系
 	private void loadResourceDefine() {
-		if (resourceMap == null) {
+		/*if (resourceMap == null) {
 			resourceMap = new HashMap<String, Collection<ConfigAttribute>>();
 			
 			
@@ -56,7 +55,7 @@ public class MySecurityMetadataSource implements FilterInvocationSecurityMetadat
 			// 以权限名封装为Spring的security Object
 
 		}
-		log.debug("权限资源相应关系：" + JSON.toJSONString(resourceMap));
+		log.debug("权限资源相应关系：" + JSON.toJSONString(resourceMap));*/
 	}
 
 	// 返回所请求资源所须要的权限

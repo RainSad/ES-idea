@@ -1,157 +1,259 @@
 package com.sys.entity.sys;
 
+import java.util.Date;
 import org.springframework.format.annotation.DateTimeFormat;
-import org.springframework.stereotype.Component;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import java.util.Date;
+
+import org.springframework.stereotype.Component;
 
 /**
- * sysDepartment 实体类 Mon Oct 09 16:32:00 CST 2017 孙文祥
+ * sysDepartment 实体类
+ * Fri Dec 29 14:11:45 CST 2017 孙文祥
  */
 @Component
 @Entity
 @Table(name = "sys_department")
 public class SysDepartment {
 
-	/** 分享id */
-	@Id
-	@Column(name = "id", length = 32)
+    /***/
+    @Id
+    @Column(name = "id", length = 32)
 	private String id;
 
-	/** 部门名称 */
-	@Column(name = "dept_name", length = 128)
-	private String deptName;
+	/**部门名称*/
+    @Column(name = "name", length = 20)
+    private String name;
 
-	/** 部门地址 */
-	@Column(name = "dept_address", length = 255)
-	private String deptAddress;
+    /**
+     * 部门层级
+     */
+    @Column(name = "level", length = 200)
+    private String level;
 
-	/** 部门电话 */
-	@Column(name = "dept_phone", length = 32)
-	private String deptPhone;
+    /**
+     * 部门在当前层级下的顺序，由小到大
+     */
+    @Column(name = "seq", length = 11)
+    private Integer seq;
 
-	/** 1菜单 2 权限 */
-	@Column(name = "type", length = 2)
-	private String type;
+    /**
+     * 部门地址
+     */
+    @Column(name = "dept_address", length = 255)
+    private String deptAddress;
 
-	/***/
-	@Column(name = "parent_id", length = 32)
+	/**部门电话*/
+    @Column(name = "dept_phone", length = 32)
+    private String deptPhone;
+
+	/**父id*/
+    @Column(name = "parent_id", length = 32)
 	private String parentId;
 
 	/***/
 	@Column(name = "remark", length = 255)
-	private String remark;
+    private String remark;
 
-	/** 时间 */
-	@Column(name = "create_time", length = 19)
+	/**创建时间*/
+    @Column(name = "create_time", length = 19)
 	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-	private Date createTime;
+    private Date createTime;
 
-	public SysDepartment() {
-		super();
-	}
+    /**
+     * 操作者
+     */
+    @Column(name = "operator", length = 20)
+    private String operator;
 
-	public SysDepartment(String id, String deptName, String deptAddress, String deptPhone, String type, String parentId,
-			String remark, Date createTime) {
-		super();
-		this.id = id;
-		this.deptName = deptName;
+    /**
+     * 最后一次操作时间
+     */
+    @Column(name = "operate_time", length = 19)
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    private Date operateTime;
+
+    /**
+     * 操作者ip
+     */
+    @Column(name = "operate_ip", length = 20)
+    private String operateIp;
+
+    /***/
+    @Column(name = "dept_name", length = 128)
+    private String deptName;
+
+    /***/
+    @Column(name = "type", length = 2)
+    private String type;
+
+    public SysDepartment() {
+        super();
+    }
+
+    public SysDepartment(String id, String name, String level, Integer seq, String deptAddress, String deptPhone, String parentId, String remark, Date createTime, String operator, Date operateTime, String operateIp, String deptName, String type) {
+        super();
+        this.id = id;
+        this.name = name;
+		this.level = level;
+		this.seq = seq;
 		this.deptAddress = deptAddress;
 		this.deptPhone = deptPhone;
-		this.type = type;
 		this.parentId = parentId;
-		this.remark = remark;
-		this.createTime = createTime;
-	}
+        this.remark = remark;
+        this.createTime = createTime;
+        this.operator = operator;
+        this.operateTime = operateTime;
+        this.operateIp = operateIp;
+        this.deptName = deptName;
+        this.type = type;
+    }
 
-	public void setId(String id) {
+    public void setId(String id) {
 
-		this.id = id;
-	}
+        this.id = id;
+    }
 
-	public String getId() {
+    public String getId() {
 
-		return id;
-	}
+        return id;
+    }
 
-	public void setDeptName(String deptName) {
+    public void setName(String name) {
 
-		this.deptName = deptName;
-	}
+        this.name = name;
+    }
 
-	public String getDeptName() {
+    public String getName() {
 
-		return deptName;
-	}
+        return name;
+    }
 
-	public void setDeptAddress(String deptAddress) {
+    public void setLevel(String level) {
 
-		this.deptAddress = deptAddress;
-	}
+        this.level = level;
+    }
 
-	public String getDeptAddress() {
+    public String getLevel() {
 
-		return deptAddress;
-	}
+        return level;
+    }
 
-	public void setDeptPhone(String deptPhone) {
+    public void setSeq(Integer seq) {
+
+        this.seq = seq;
+    }
+
+    public Integer getSeq() {
+
+        return seq;
+    }
+
+    public void setDeptAddress(String deptAddress){
+
+		this.deptAddress=deptAddress;
+    }
+
+    public String getDeptAddress() {
+
+        return deptAddress;
+    }
+
+    public void setDeptPhone(String deptPhone){
 
 		this.deptPhone = deptPhone;
-	}
+    }
 
-	public String getDeptPhone() {
+    public String getDeptPhone() {
 
-		return deptPhone;
-	}
+        return deptPhone;
+    }
 
-	public void setType(String type) {
+    public void setParentId(String parentId){
 
-		this.type = type;
-	}
+		this.parentId = parentId;
+    }
+
+    public String getParentId() {
+
+        return parentId;
+    }
+
+    public void setRemark(String remark){
+
+        this.remark = remark;
+    }
+
+    public String getRemark() {
+
+        return remark;
+    }
+
+    public void setCreateTime(Date createTime){
+
+        this.createTime = createTime;
+    }
+
+    public Date getCreateTime() {
+
+        return createTime;
+    }
+
+    public void setOperator(String operator) {
+
+        this.operator = operator;
+    }
+
+    public String getOperator() {
+
+        return operator;
+    }
+
+    public void setOperateTime(Date operateTime) {
+
+        this.operateTime = operateTime;
+    }
+
+    public Date getOperateTime() {
+
+        return operateTime;
+    }
+
+    public void setOperateIp(String operateIp) {
+
+        this.operateIp = operateIp;
+    }
+
+    public String getOperateIp() {
+
+        return operateIp;
+    }
+
+    public void setDeptName(String deptName) {
+
+        this.deptName = deptName;
+    }
+
+    public String getDeptName() {
+
+        return deptName;
+    }
+
+    public void setType(String type){
+
+        this.type=type;
+    }
 
 	public String getType() {
 
-		return type;
-	}
+        return type;
+    }
 
-	public void setParentId(String parentId) {
-
-		this.parentId = parentId;
-	}
-
-	public String getParentId() {
-
-		return parentId;
-	}
-
-	public void setRemark(String remark) {
-
-		this.remark = remark;
-	}
-
-	public String getRemark() {
-
-		return remark;
-	}
-
-	public void setCreateTime(Date createTime) {
-
-		this.createTime = createTime;
-	}
-
-	public Date getCreateTime() {
-
-		return createTime;
-	}
-
-	@Override
-	public String toString() {
-		return "SysDepartment [id=" + id + ", deptName=" + deptName + ", deptAddress=" + deptAddress + ", deptPhone="
-				+ deptPhone + ", type=" + type + ", parentId=" + parentId + ", remark=" + remark + ", createTime="
-				+ createTime + "]";
-	}
+    @Override
+    public String toString() {
+        return "SysDepartment [id=" + id + ", name=" + name + ", level=" + level + ", seq=" + seq + ", deptAddress=" + deptAddress + ", deptPhone=" + deptPhone + ", parentId=" + parentId + ", remark=" + remark + ", createTime=" + createTime + ", operator=" + operator + ", operateTime=" + operateTime + ", operateIp=" + operateIp + ", deptName=" + deptName + ", type=" + type + "]";
+    }
 }
+

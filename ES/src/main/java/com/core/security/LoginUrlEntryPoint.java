@@ -1,6 +1,5 @@
 package com.core.security;
 
-import com.core.common.canstant.Canstant;
 import com.core.common.utill.EmptyUtils;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.AuthenticationEntryPoint;
@@ -10,6 +9,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+import static com.core.common.canstant.Canstant.USER_INFO;
+
 public class LoginUrlEntryPoint implements AuthenticationEntryPoint {
 
 	@Override
@@ -18,8 +19,8 @@ public class LoginUrlEntryPoint implements AuthenticationEntryPoint {
 		String targetUrl = null;
 		String url = request.getRequestURI();
 
-		SysUserSecurity user = (SysUserSecurity) request.getSession().getAttribute(Canstant.USER_INFO);
-		// System.out.println(user.getUsername());
+        SysUserSecurity user = (SysUserSecurity) request.getSession().getAttribute(USER_INFO);
+        // System.out.println(user.getUsername());
 		if (EmptyUtils.isEmpty(user)) {
 			targetUrl = "/toLogin";
 		} else if (url.indexOf("admin") > 0) {
