@@ -1,6 +1,6 @@
 package com.core.common.databasetoentity;
 
-import com.core.common.utill.CamelCharOrUnderLine;
+import com.core.common.utills.CamelCharOrUnderLine;
 import com.mysql.jdbc.Connection;
 import com.mysql.jdbc.PreparedStatement;
 import com.mysql.jdbc.ResultSetMetaData;

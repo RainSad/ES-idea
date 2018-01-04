@@ -1,9 +1,6 @@
 package com.sys.controller.index;
 
 import com.sys.entity.index.ViewShare;
-import com.sys.repository.index.ViewCommentUrlRepositoryImp;
-import com.sys.repository.index.ViewImgUrlRepositoryImp;
-import com.sys.repository.index.ViewShareRepositoryImp;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -24,15 +21,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
  */
 @Controller
 public class GetData {
-	@Autowired
-	private ViewCommentUrlRepositoryImp viewCommentUrlRepositoryImp;
-	@Autowired
-	private ViewShareRepositoryImp viewShareRepositoryImp;
-	@Autowired
-	private ViewImgUrlRepositoryImp viewImgUrlRepositoryImp;
-	
 
-	/**
+
+    /**
 	 * 获取主页轮播图
 	* @Description: 
 	* @Title: indexDataCarousel 

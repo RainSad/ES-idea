@@ -1,6 +1,6 @@
 package com.core.security;
 
-import com.core.common.utill.EmptyUtils;
+import com.core.common.utills.EmptyUtils;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.AuthenticationEntryPoint;
 

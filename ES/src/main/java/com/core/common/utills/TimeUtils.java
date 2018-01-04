@@ -1,4 +1,4 @@
-package com.core.common.utill;
+package com.core.common.utills;
 
 import com.core.common.canstant.TimeConstants;
 

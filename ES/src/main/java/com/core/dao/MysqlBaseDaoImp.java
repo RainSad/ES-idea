@@ -1,7 +1,7 @@
 package com.core.dao;
 
 import com.alibaba.fastjson.JSON;
-import com.core.common.utill.CamelCharOrUnderLine;
+import com.core.common.utills.CamelCharOrUnderLine;
 import com.sys.entity.resdata.QueryResultPage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;

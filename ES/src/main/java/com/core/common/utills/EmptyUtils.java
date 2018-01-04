@@ -1,4 +1,4 @@
-package com.core.common.utill;
+package com.core.common.utills;
 
 import java.lang.reflect.Array;
 import java.util.Collection;

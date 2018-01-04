@@ -1,7 +1,7 @@
 package com.core.security;
 
 import com.alibaba.fastjson.JSON;
-import com.core.common.utill.EmptyUtils;
+import com.core.common.utills.EmptyUtils;
 import com.sys.entity.sys.SysRole;
 import com.sys.entity.sys.SysUser;
 import com.sys.repository.sys.SysRoleRepositoryImp;

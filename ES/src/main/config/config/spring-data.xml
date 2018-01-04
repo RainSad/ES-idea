@@ -7,8 +7,7 @@
 		http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa-1.8.xsd">
 
 	<!-- spring-data 配置 -->
-	<bean id="jpaVendorAdapter"
-		class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter" />
+    <bean id="jpaVendorAdapter" class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter"/>
 	<!-- 指定方言 -->
 	<bean id="jpaDialect" class="org.springframework.orm.jpa.vendor.HibernateJpaDialect" />
 	  
@@ -37,8 +36,8 @@
 			</list>
 		</property>
 	</bean>
-	
-	<!-- 重要配置：启用扫描并自动创建代理的功能 -->
+
+    <!-- 重要配置：启用扫描并自动创建代理的功能 -->
 	<jpa:repositories base-package="com.sys.repository"
 		transaction-manager-ref="transactionManager"
 		entity-manager-factory-ref="entityManagerFactory"/>

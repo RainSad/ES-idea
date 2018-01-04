@@ -1,8 +1,6 @@
 package com.sys.controller;
 
-import com.core.common.utill.IdToolUtil;
 import org.apache.log4j.Logger;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -33,8 +31,8 @@ public class Forward {
 	}
 
 
-    @RequestMapping("/login")
-    public String toLogin() {
+	@RequestMapping("/toLogin")
+	public String toLogin() {
 		log.debug(" -- > ['toLogin'] --> [ '/toLogin' ]  --> [ '/WEB-INF/view/index/login.html' ]");
 		return "index/login";
 	}

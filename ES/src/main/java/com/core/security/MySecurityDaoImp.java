@@ -1,19 +1,11 @@
 package com.core.security;
 
-import com.alibaba.fastjson.JSON;
-import com.core.common.utill.EmptyUtils;
-import com.sys.entity.sys.SysRole;
 import com.sys.entity.sys.SysUser;
 import com.sys.repository.sys.SysRoleRepositoryImp;
 import com.sys.repository.sys.SysUserRepositoryImp;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 @Repository("MySecurityDaoImp")
 public class MySecurityDaoImp {

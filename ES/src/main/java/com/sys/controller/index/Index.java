@@ -1,12 +1,18 @@
 package com.sys.controller.index;
 
-import com.core.common.utill.IdToolUtil;
+import com.core.common.webUtils.ApplicationContextHelper;
+import com.core.common.webUtils.BeanValidator;
+import com.core.common.utills.IdToolUtil;
 import com.sys.entity.index.ViewImgUrl;
 import com.sys.entity.index.ViewShare;
 import com.sys.entity.resdata.JSONResponse;
+import com.sys.entity.resdata.JsonData;
+import com.sys.entity.resdata.TestVo;
+import com.sys.entity.sys.SysRole;
 import com.sys.entity.user.UserInfo;
 import com.sys.repository.index.ViewImgUrlRepositoryImp;
 import com.sys.repository.index.ViewShareRepositoryImp;
+import com.sys.repository.sys.SysRoleRepositoryImp;
 import com.sys.service.index.IndexService;
 import com.sys.service.user.UserInfoService;
 import org.apache.log4j.Logger;
@@ -182,5 +188,23 @@ public class Index {
 		
 		return new JSONResponse(findOne == null ? 0 :1, findOne);
 		
+	}
+
+	@RequestMapping("/hello.json")
+	@ResponseBody
+	public JsonData hello() {
+		log.info("hello");
+		throw new RuntimeException();
+	}
+
+	@RequestMapping("/validate.json")
+	@ResponseBody
+	public JsonData validateJson(TestVo vo) {
+		log.info("validate");
+		SysRoleRepositoryImp temp = ApplicationContextHelper.popBean(SysRoleRepositoryImp.class);
+		SysRole one = temp.findOne("1");
+		System.out.println(one.getRoleCode());
+		BeanValidator.check(vo);
+		return JsonData.success("success validate");
 	}
 }

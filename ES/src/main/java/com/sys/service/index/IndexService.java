@@ -1,6 +1,6 @@
 package com.sys.service.index;
 
-import com.core.common.utill.IdToolUtil;
+import com.core.common.utills.IdToolUtil;
 import com.core.dao.MysqlBaseDaoImp;
 import com.sys.entity.index.ViewComment;
 import com.sys.entity.index.ViewImgUrl;
