@@ -1,6 +1,8 @@
 package com.sys.entity.sys;
 
 import java.util.Date;
+
+import lombok.Builder;
 import org.springframework.format.annotation.DateTimeFormat;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -13,7 +15,7 @@ import org.springframework.stereotype.Component;
  * sysDepartment 实体类
  * Fri Dec 29 14:11:45 CST 2017 孙文祥
  */
-@Component
+@Builder
 @Entity
 @Table(name = "sys_department")
 public class SysDepartment {
@@ -21,7 +23,7 @@ public class SysDepartment {
     /***/
     @Id
     @Column(name = "id", length = 32)
-	private String id;
+    private String id;
 
 	/**部门名称*/
     @Column(name = "name", length = 20)

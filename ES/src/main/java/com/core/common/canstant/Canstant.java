@@ -8,4 +8,6 @@ public final class Canstant {
     public final static String IS_LOGIN = "isLogin";
 
     public final static String USER_INFO = "user";
+
+
 }
