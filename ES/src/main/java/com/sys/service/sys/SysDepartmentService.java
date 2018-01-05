@@ -10,7 +10,6 @@ import com.sys.repository.sys.SysDepartmentRepositoryImp;
 import com.sys.repository.sys.SysDepartmentServiceImp;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.CollectionUtils;
