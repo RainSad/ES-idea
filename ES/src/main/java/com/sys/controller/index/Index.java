@@ -14,6 +14,7 @@ import com.sys.repository.index.ViewImgUrlRepositoryImp;
 import com.sys.repository.index.ViewShareRepositoryImp;
 import com.sys.repository.sys.SysRoleRepositoryImp;
 import com.sys.service.index.IndexService;
+import com.sys.service.sys.SysTreeService;
 import com.sys.service.user.UserInfoService;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -55,13 +56,14 @@ public class Index {
 	private UserInfoService userInfoService;
 
 	@Autowired
-	private UserInfo userInfo;
-	@Autowired
 	private IndexService IndexService;
 	@Autowired
 	private ViewShareRepositoryImp viewShareRepositoryImp;
 	@Autowired
 	private ViewImgUrlRepositoryImp viewImgUrlRepositoryImp;
+
+    @Autowired
+    private SysTreeService sysTreeService;
 
 	Logger log = Logger.getLogger(Index.class);
 

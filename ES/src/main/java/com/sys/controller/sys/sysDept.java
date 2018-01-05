@@ -3,7 +3,7 @@ package com.sys.controller.sys;
 import com.sys.entity.dto.DeptLevelDto;
 import com.sys.entity.param.DeptParam;
 import com.sys.entity.resdata.JsonData;
-import com.sys.service.SysTreeService;
+import com.sys.service.sys.SysTreeService;
 import com.sys.service.sys.SysDepartmentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -28,6 +28,13 @@ public class sysDept {
         return JsonData.success();
     }
 
+    @RequestMapping("/update.json")
+    @ResponseBody
+    public JsonData updateDept(DeptParam deptParam) {
+        sysDepartmentService.update(deptParam);
+        return JsonData.success();
+    }
+
     @RequestMapping("/tree.json")
     @ResponseBody
     public JsonData tree() {
@@ -35,4 +42,6 @@ public class sysDept {
 
         return JsonData.success(dtoList);
     }
+
+
 }

@@ -1,4 +1,4 @@
-package com.sys.service;
+package com.sys.service.sys;
 
 import com.core.common.utills.LevelUtil;
 import com.google.common.collect.ArrayListMultimap;

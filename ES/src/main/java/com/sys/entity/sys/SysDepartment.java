@@ -1,15 +1,15 @@
 package com.sys.entity.sys;
 
-import java.util.Date;
-
 import lombok.Builder;
+import org.hibernate.annotations.Type;
 import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
-
-import org.springframework.stereotype.Component;
+import java.io.Serializable;
+import java.util.Date;
 
 /**
  * sysDepartment 实体类
@@ -18,16 +18,16 @@ import org.springframework.stereotype.Component;
 @Builder
 @Entity
 @Table(name = "sys_department")
-public class SysDepartment {
+public class SysDepartment implements Serializable {
 
     /***/
     @Id
-    @Column(name = "id", length = 32)
+    @Column(name = "id", length = 11)
     private String id;
 
 	/**部门名称*/
-    @Column(name = "name", length = 20)
-    private String name;
+    @Column(name = "dept_name", length = 20)
+    private String deptName;
 
     /**
      * 部门层级
@@ -84,10 +84,6 @@ public class SysDepartment {
     private String operateIp;
 
     /***/
-    @Column(name = "dept_name", length = 128)
-    private String deptName;
-
-    /***/
     @Column(name = "type", length = 2)
     private String type;
 
@@ -95,11 +91,11 @@ public class SysDepartment {
         super();
     }
 
-    public SysDepartment(String id, String name, String level, Integer seq, String deptAddress, String deptPhone, String parentId, String remark, Date createTime, String operator, Date operateTime, String operateIp, String deptName, String type) {
+    public SysDepartment(String id, String deptName, String level, Integer seq, String deptAddress, String deptPhone, String parentId, String remark, Date createTime, String operator, Date operateTime, String operateIp, String type) {
         super();
         this.id = id;
-        this.name = name;
-		this.level = level;
+        this.deptName = deptName;
+        this.level = level;
 		this.seq = seq;
 		this.deptAddress = deptAddress;
 		this.deptPhone = deptPhone;
@@ -109,7 +105,6 @@ public class SysDepartment {
         this.operator = operator;
         this.operateTime = operateTime;
         this.operateIp = operateIp;
-        this.deptName = deptName;
         this.type = type;
     }
 
@@ -121,16 +116,6 @@ public class SysDepartment {
     public String getId() {
 
         return id;
-    }
-
-    public void setName(String name) {
-
-        this.name = name;
-    }
-
-    public String getName() {
-
-        return name;
     }
 
     public void setLevel(String level) {
@@ -255,7 +240,7 @@ public class SysDepartment {
 
     @Override
     public String toString() {
-        return "SysDepartment [id=" + id + ", name=" + name + ", level=" + level + ", seq=" + seq + ", deptAddress=" + deptAddress + ", deptPhone=" + deptPhone + ", parentId=" + parentId + ", remark=" + remark + ", createTime=" + createTime + ", operator=" + operator + ", operateTime=" + operateTime + ", operateIp=" + operateIp + ", deptName=" + deptName + ", type=" + type + "]";
+        return "SysDepartment [id=" + id + ", deptName=" + deptName + ", level=" + level + ", seq=" + seq + ", deptAddress=" + deptAddress + ", deptPhone=" + deptPhone + ", parentId=" + parentId + ", remark=" + remark + ", createTime=" + createTime + ", operator=" + operator + ", operateTime=" + operateTime + ", operateIp=" + operateIp + ", type=" + type + "]";
     }
 }
 
