@@ -68,7 +68,7 @@ public class SysTreeService {
                 //排序
                 Collections.sort(tempDeptList, deptSeqComparator);
                 //设置下一层部门
-                deptLevelDto.setDeptList(tempDeptList);
+                deptLevelDto.setNodes(tempDeptList);
                 //进入下一层处理
                 transformDeptTree(tempDeptList, nextLevel, levelDeptMap);
             }

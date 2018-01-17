@@ -1,6 +1,6 @@
 <component name="ArtifactManager">
   <artifact type="exploded-war" name="ES:war exploded">
-    <output-path>$PROJECT_DIR$/out/artifacts/ES_war_exploded</output-path>
+    <output-path>$PROJECT_DIR$/target/ES</output-path>
     <root id="root">
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
@@ -58,6 +58,8 @@
           <element id="library" level="project" name="Maven: org.springframework.security:spring-security-web:4.2.3.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework.security:spring-security-config:4.2.3.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework.security:spring-security-taglibs:4.2.3.RELEASE" />
+          <element id="library" level="project" name="Maven: org.freemarker:freemarker:2.3.23" />
+          <element id="library" level="project" name="Maven: javax.servlet:jstl:1.2" />
           <element id="library" level="project" name="Maven: org.hibernate:hibernate-entitymanager:5.2.10.Final" />
           <element id="library" level="project" name="Maven: org.jboss.logging:jboss-logging:3.3.0.Final" />
           <element id="library" level="project" name="Maven: org.hibernate:hibernate-core:5.2.10.Final" />
@@ -77,6 +79,9 @@
           <element id="library" level="project" name="Maven: com.fasterxml:classmate:1.3.1" />
           <element id="library" level="project" name="Maven: commons-codec:commons-codec:1.10" />
         </element>
+      </element>
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/target/ES/META-INF/MANIFEST.MF" />
       </element>
       <element id="javaee-facet-resources" facet="ES/web/Web" />
     </root>

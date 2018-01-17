@@ -49,6 +49,24 @@ public class Forward {
 		return "index/detail";
 	}
 
+	@RequestMapping("/toSysDept")
+	public String toSysDept() {
+		log.debug(" -- > ['toSysDept'] --> [ '/toSysDept' ]  --> [ '/WEB-INF/view/sys/dept/dept.html' ]");
+		return "sys/dept/dept";
+	}
+
+	@RequestMapping("/toSysMain")
+	public String toSysMain() {
+		log.debug(" -- > ['toSysMain'] --> [ '/toSysMain' ]  --> [ '/WEB-INF/view/sys/toSysMain.html' ]");
+		return "sys/main";
+	}
+
+	@RequestMapping("/toSysUser")
+	public String toSysUserList() {
+		log.debug(" -- > ['toSysUser'] --> [ '/toSysUser' ]  --> [ '/WEB-INF/view/sys/user/user.html' ]");
+		return "sys/user/user";
+	}
+
     @RequestMapping("/toWebSocket")
     public String webSocket() {
 
