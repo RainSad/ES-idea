@@ -48,8 +48,6 @@ public class SysDepartmentService {
         dept.setDeptAddress("武汉市洪山区惠安新苑");//TODO
         dept.setDeptPhone("156291s21821");//TODO
         dept.setCreateTime(new Date());//TODO
-        dept.setDeptAddress("武汉市洪山区惠安新苑");//TODO
-        dept.setDeptAddress("武汉市洪山区惠安新苑");//TODO
         //不使用spring data是因为他使用hibernate方法，主键为查询最大值后自动生成,因此没有指定主键的情况下，用save会报异常。
         SysDepartmentServiceImp.save(dept);
     }

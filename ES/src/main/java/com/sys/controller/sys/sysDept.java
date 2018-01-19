@@ -1,10 +1,12 @@
 package com.sys.controller.sys;
 
+import com.alibaba.fastjson.JSON;
 import com.sys.entity.dto.DeptLevelDto;
 import com.sys.entity.param.DeptParam;
 import com.sys.entity.resdata.JsonData;
 import com.sys.service.sys.SysTreeService;
 import com.sys.service.sys.SysDepartmentService;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,6 +18,8 @@ import java.util.List;
 @RequestMapping("/sys/dept")
 public class sysDept {
 
+    Logger log = Logger.getLogger(sysDept.class);
+
     @Autowired
     private SysDepartmentService sysDepartmentService;
     @Autowired
@@ -24,7 +28,8 @@ public class sysDept {
     @RequestMapping("/save.json")
     @ResponseBody
     public JsonData saveDept(DeptParam deptParam) {
-        sysDepartmentService.save(deptParam);
+        //sysDepartmentService.save(deptParam);
+        log.info(JSON.toJSONString(deptParam));
         return JsonData.success();
     }
 

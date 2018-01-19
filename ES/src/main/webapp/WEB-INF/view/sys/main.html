@@ -13,7 +13,8 @@
     <link rel="stylesheet" type="text/css" href="res/css/sys/common.css"/>
     <link rel="stylesheet" type="text/css" href="res/commom/bootstrap3.3.7/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="res/commom/font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" href="res/commom/easyui/plugins/bootstrap-plugins/bootstrap-table.min.css">
+    <link rel="stylesheet" href="res/commom/bootstrap3.3.7/js/bootstrap-table.min.css">
+    <link rel="stylesheet" href="res/commom/bootstrap3.3.7/css/bootstrap-select.min.css">
 </head>
 <body>
 <div id="wrap">
@@ -46,11 +47,22 @@
     </div>
 
 </div>
+<!-- 弹出提示框 info，为传入的数据  cancel和submit采用回调对应父组件的方法 -->
+<div id="confirmModel">
+    <confirm :info="info" @cancel="cancel" @submit="submit"></confirm>
+</div>
+<div id="confirmModel2">
+    <confirm :info="info" @cancel="cancel" @submit="submit"></confirm>
+</div>
 </body>
 <script src="res/commom/vue/vue.min.js"></script>
-<script src="res/commom/easyui/plugins/bootstrap-plugins/bootstrap-table.min.js"></script>
-<script src="res/commom/easyui/plugins/bootstrap-plugins/bootstrap-table-zh-CN.js"></script>
-<script src="res/commom/easyui/plugins/bootstrap-plugins/bootstrap-treeview-dept.js"></script>
+<script src="res/commom/bootstrap3.3.7/js/bootstrap-table.min.js"></script>
+<script src="res/commom/bootstrap3.3.7/js/bootstrap-table-zh-CN.js"></script>
+<script src="res/commom/bootstrap3.3.7/js/bootstrap-treeview-dept.js"></script>
+<script src="res/commom/bootstrap3.3.7/js/bootstrapValidator.min.js"></script>
+<script src="res/commom/bootstrap3.3.7/js/bootstrap-select.min.js"></script>
+<script src="res/commom/bootstrap3.3.7/js/bootstrap-select-zh_CN.min.js"></script>
+<script src="res/commom/vue/components/confirm.js"></script>
 <script src="res/js/sys/main.js"></script>
 <script src="res/js/sys/user/user.js"></script>
 <script src="res/js/sys/dept/dept.js"></script>

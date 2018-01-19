@@ -1,29 +1,35 @@
 $(function () {
     initUserDeptListData();
-})
+    initUsersListData();
+});
 
 //渲染左边部门树
 var UserVm = new Vue({
     data: {
         deptData: []
     }
-})
+});
 
 UserVm.$watch('deptData', function () {
     $('#treeUserList').treeview({
         data: UserVm.deptData
     });
-})
+});
 
 //右侧用户列表显示
 var UserVm2 = new Vue({
     data: {
-        deptLevel: []
+        deptLevel: '',
+        usersData: []
     }
-})
+});
 UserVm2.$watch('deptLevel', function () {
-    initUsersTable(UserVm2.deptLevel);
-})
+    //initUsersTable(UserVm2.deptLevel);
+});
+
+UserVm2.$watch('usersData', function () {
+    initUsersTable();
+});
 
 
 function initUserDeptListData() {
@@ -37,17 +43,17 @@ function initUserDeptListData() {
 function initUsersListData() {
     var url = "sys/users/user.json"
     $.getJSON(url, function (result) {
-        UserVm2.usersData = result.data;
+        UserVm2.usersData = result;
     });
 }
 
 
-function initUsersTable(data) {
+function initUsersTable() {
     $('#userList').bootstrapTable({
-        url: 'sys/users/user.json?' + data,         //请求后台的URL（*）
+        url: 'sys/users/user.json',         //请求后台的URL（*）
         //data: data,
         method: 'get',                      //请求方式（*）
-        toolbar: '#toolbar',                //工具按钮用哪个容器
+        toolbar: '#userToolbar',                //工具按钮用哪个容器
         striped: true,                      //是否显示行间隔色
         cache: false,                       //是否使用缓存，默认为true，所以一般情况下需要设置一下这个属性（*）
         pagination: true,                   //是否显示分页（*）
