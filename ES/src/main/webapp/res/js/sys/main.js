@@ -22,7 +22,7 @@ vm.$watch("returnView", function () {
             ///
             break
     }
-})
+});
 
 //初始化页面显示
 function initRelativeBto() {
@@ -43,6 +43,7 @@ function initRelativeBto() {
     });
 
 }
+
 
 
 

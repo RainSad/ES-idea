@@ -28,6 +28,10 @@ public class SysDepartmentService {
     @Autowired
     private SysDepartmentServiceImp SysDepartmentServiceImp;
 
+    public void del(DeptParam param) {
+        BeanValidator.check(param);
+
+    }
 
     @Transactional
     public void save(DeptParam param) {
@@ -39,14 +43,14 @@ public class SysDepartmentService {
                 .seq(param.getSeq())
                 .parentId(param.getParentId())
                 .remark(param.getRemark())
+                .deptAddress(param.getDeptAddress())
+                .deptPhone(param.getDeptPhone())
                 .build();
 
         dept.setLevel(LevelUtil.calculateLevel(getLevel(param.getParentId()), param.getParentId()));
         dept.setOperator("system");//TODO
         dept.setOperateIp("127.0.0.1");//TODO
         dept.setOperateTime(new Date());
-        dept.setDeptAddress("武汉市洪山区惠安新苑");//TODO
-        dept.setDeptPhone("156291s21821");//TODO
         dept.setCreateTime(new Date());//TODO
         //不使用spring data是因为他使用hibernate方法，主键为查询最大值后自动生成,因此没有指定主键的情况下，用save会报异常。
         SysDepartmentServiceImp.save(dept);
@@ -68,13 +72,13 @@ public class SysDepartmentService {
                 .seq(param.getSeq())
                 .parentId(param.getParentId())
                 .remark(param.getRemark())
+                .deptPhone(param.getDeptPhone())
+                .deptAddress(param.getDeptAddress())
                 .build();
         after.setLevel(LevelUtil.calculateLevel(getLevel(param.getParentId()), param.getParentId()));
         after.setOperator("system-update");//TODO
         after.setOperateIp("127.0.0.1");//TODO
         after.setOperateTime(new Date());
-        after.setDeptAddress("武汉市洪山区惠安新苑");//TODO
-        after.setDeptPhone("156291s21821");//TODO
 
         updateWithChild(before, after);
     }

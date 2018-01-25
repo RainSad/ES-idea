@@ -8,6 +8,7 @@ import org.hibernate.validator.constraints.NotBlank;
 
 import javax.validation.constraints.NotNull;
 import java.util.Date;
+import java.util.Map;
 
 @Getter
 @Setter
@@ -27,5 +28,11 @@ public class DeptParam {
 
     @Length(max = 150, message = "备注长度需要在150个字之内")
     private String remark;
+
+    private String deptPhone;
+
+    private String deptAddress;
+
+    private String ip;
 
 }

@@ -53,7 +53,7 @@ function initLoginInfo() {
     var url = 'http://chaxun.1616.net/s.php?type=ip&output=json&callback=?&_='
         + Math.random();
     $.getJSON(url, function (data) {
-        saveLoginInfo(JSON.stringify(data));
+        saveLoginInfo(data);
     });
 
 }
