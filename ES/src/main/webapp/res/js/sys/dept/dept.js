@@ -359,7 +359,7 @@ var deptVm9 = new Vue({
         deptDelsubmit: function () {
             //弹出删除框
             console.log(deptVm9.param.ids);
-            AjaxSubmit("sys/dept/del", {"ids": deptVm9.parm}, deptVm9);
+            AjaxSubmit("sys/dept/del", {"ids": deptVm9.param.ids}, deptVm9);
         },
         success: function (result) {
             $('#deptDel').modal('hide');
