@@ -34,7 +34,7 @@ public class MyUserDetailsService implements UserDetailsService {
         List<GrantedAuthority> gList = new ArrayList<GrantedAuthority>();
         if (EmptyUtils.isNotEmpty(user)) {
             BeanUtils.copyProperties(sysyUserSecurity, user);
-            List<SysRole> findRoleCode = sysRoleRepositoryImp.findRoleCode(user.getId());
+            List<SysRole> findRoleCode = sysRoleRepositoryImp.findRoleCode(user.getId().toString());
             if (EmptyUtils.isNotEmpty(findRoleCode)) {
                 for (SysRole temp : findRoleCode) {
                     log.debug("User is : " + user.getUsername() + "Role is : " + temp.getRoleCode());

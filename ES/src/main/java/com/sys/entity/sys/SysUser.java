@@ -1,6 +1,8 @@
 package com.sys.entity.sys;
 
 import java.util.Date;
+
+import lombok.Builder;
 import org.springframework.format.annotation.DateTimeFormat;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -13,7 +15,7 @@ import org.springframework.stereotype.Component;
  * sysUser 实体类
  * Fri Dec 29 14:13:29 CST 2017 孙文祥
  */
-@Component
+@Builder
 @Entity
 @Table(name = "sys_user")
 public class SysUser {
@@ -21,7 +23,7 @@ public class SysUser {
     /***/
     @Id
     @Column(name = "id", length = 32)
-	private String id;
+    private String id;
 
 	/**用户名*/
     @Column(name = "username", length = 64)
