@@ -3,11 +3,11 @@ package com.sys.entity.sys;
 import java.util.Date;
 
 import lombok.Builder;
+import org.hibernate.annotations.GeneratorType;
+import org.hibernate.annotations.Type;
 import org.springframework.format.annotation.DateTimeFormat;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+
+import javax.persistence.*;
 
 import org.springframework.stereotype.Component;
 
@@ -22,6 +22,7 @@ public class SysUser {
 
     /***/
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", length = 32)
     private String id;
 

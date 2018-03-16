@@ -240,7 +240,7 @@
     </footer>
 </div>
 <!-- 添加按钮 -->
-<div id="addRes" class="buttonDiv" v-on:click="modelViewShare">
+<div id="addRes" class="buttonDiv" @click="modelViewShare">
     <a data-toggle="modal" id="exportModel"> <i
             class="glyphicon glyphicon-plus" style="font-size: 30px"></i>
     </a>
@@ -258,7 +258,7 @@
             </div>
             <div class="modal-body">
                 <form enctype="multipart/form-data">
-                    <input id="id" name="id" type="hidden" v-bind:value="info.id">
+                    <input id="id" name="id" type="hidden" :value="info.id">
                     <div class="form-group">
                         <label for="title">输入标题</label> <input type="text" class="form-control" name="title" id="title" placeholder="请输入分享标题，越夸张越好...">
                     </div>
@@ -271,9 +271,9 @@
                 </form>
             </div>
             <div class="modal-footer">
-                <button v-on:click="resetData" type="button" class="btn btn-default">重置</button>
+                <button @click="resetData" type="button" class="btn btn-default">重置</button>
                 <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-                <button v-on:click="viewShareSubmit" type="button"
+                <button @click="viewShareSubmit" type="button"
                         class="btn btn-primary">上传
                 </button>
             </div>

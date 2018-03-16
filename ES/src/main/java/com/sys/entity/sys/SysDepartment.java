@@ -4,10 +4,7 @@ import lombok.Builder;
 import org.hibernate.annotations.Type;
 import org.springframework.format.annotation.DateTimeFormat;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
 
@@ -22,6 +19,7 @@ public class SysDepartment implements Serializable {
 
     /***/
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", length = 11)
     private String id;
 

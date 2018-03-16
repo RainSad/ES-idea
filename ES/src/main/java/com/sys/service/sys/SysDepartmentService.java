@@ -7,7 +7,6 @@ import com.google.common.base.Preconditions;
 import com.sys.entity.param.DeptParam;
 import com.sys.entity.sys.SysDepartment;
 import com.sys.repository.sys.SysDepartmentRepositoryImp;
-import com.sys.repository.sys.SysDepartmentServiceImp;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -25,8 +24,6 @@ public class SysDepartmentService {
     @Autowired
     private SysDepartmentRepositoryImp sysDepartmentRepositoryImp;
 
-    @Autowired
-    private SysDepartmentServiceImp SysDepartmentServiceImp;
 
     public void del(DeptParam param) {
         BeanValidator.check(param);
@@ -53,7 +50,7 @@ public class SysDepartmentService {
         dept.setOperateTime(new Date());
         dept.setCreateTime(new Date());//TODO
         //不使用spring data是因为他使用hibernate方法，主键为查询最大值后自动生成,因此没有指定主键的情况下，用save会报异常。
-        SysDepartmentServiceImp.save(dept);
+        sysDepartmentRepositoryImp.save(dept);
     }
 
     public void update(DeptParam param) {

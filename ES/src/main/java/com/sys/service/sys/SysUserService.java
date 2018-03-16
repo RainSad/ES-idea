@@ -8,11 +8,10 @@ import com.google.common.base.Preconditions;
 import com.sys.entity.param.UserParam;
 import com.sys.entity.sys.SysUser;
 import com.sys.repository.sys.SysUserRepositoryImp;
-import com.sys.repository.sys.SysUserServiceImp;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.apache.log4j.Logger;
 
 import java.util.Date;
 
@@ -20,9 +19,6 @@ import java.util.Date;
 public class SysUserService {
 
     Logger log = Logger.getLogger(SysUserService.class);
-
-    @Autowired
-    private SysUserServiceImp sysUserServiceImp;
 
     @Autowired
     private SysUserRepositoryImp sysUserRepositoryImp;
@@ -59,8 +55,7 @@ public class SysUserService {
                 .build();
 
         // TODO  send Email
-        //不使用spring data是因为他使用hibernate方法，主键为查询最大值后自动生成,因此没有指定主键的情况下，用save会报异常。
-        sysUserServiceImp.save(sysUser);
+        sysUserRepositoryImp.save(sysUser);
 
     }
 
@@ -73,7 +68,6 @@ public class SysUserService {
         if (checkTelPhoneExist(param.getPhone(), param.getId())) {
             throw new ParamException("邮箱已被占用");
         }
-        log.info("---------------" + param.getId().toString());
         SysUser before = sysUserRepositoryImp.findOne(param.getId().toString());
         Preconditions.checkNotNull(before, "待更新的用户不存在");
 
@@ -100,11 +94,15 @@ public class SysUserService {
         sysUserRepositoryImp.save(after);
     }
 
+    public SysUser findByKeyWord(String keyWord) {
+        return sysUserRepositoryImp.findByUsernameOrEmailOrPhone(keyWord, keyWord, keyWord);
+    }
+
     public boolean checkEmailExist(String mail, Integer userId) {
-        return false;
+        return sysUserRepositoryImp.countByEmailAndId(mail, userId.toString()) > 0;
     }
 
     public boolean checkTelPhoneExist(String phone, Integer userId) {
-        return false;
+        return sysUserRepositoryImp.countByPhoneAndId(phone, userId.toString()) > 0;
     }
 }

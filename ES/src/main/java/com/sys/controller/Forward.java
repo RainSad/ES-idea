@@ -34,13 +34,13 @@ public class Forward {
 	@RequestMapping("/toLogin")
 	public String toLogin() {
 		log.debug(" -- > ['toLogin'] --> [ '/toLogin' ]  --> [ '/WEB-INF/view/index/login.html' ]");
-		return "index/login";
+		return "sys/admin/login";
 	}
 
     @RequestMapping("/toRigister")
     public String toRegister() {
 		log.debug(" -- > ['toRegister'] --> [ '/toRigister' ]  --> [ '/WEB-INF/view/index/register.html' ]");
-		return "index/register";
+		return "sys/admin/register";
 	}
 
     @RequestMapping("/toDetail")
