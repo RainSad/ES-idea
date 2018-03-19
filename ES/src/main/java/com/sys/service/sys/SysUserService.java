@@ -94,14 +94,32 @@ public class SysUserService {
         sysUserRepositoryImp.save(after);
     }
 
+    /**
+     * 根据用户名，邮箱，电话登陆
+     *
+     * @param keyWord
+     * @return
+     */
     public SysUser findByKeyWord(String keyWord) {
         return sysUserRepositoryImp.findByUsernameOrEmailOrPhone(keyWord, keyWord, keyWord);
     }
 
+    /**
+     * 检测邮箱是否被占用
+     * @param mail
+     * @param userId
+     * @return
+     */
     public boolean checkEmailExist(String mail, Integer userId) {
         return sysUserRepositoryImp.countByEmailAndId(mail, userId.toString()) > 0;
     }
 
+    /**
+     * 检测电话是否被占用
+     * @param phone
+     * @param userId
+     * @return
+     */
     public boolean checkTelPhoneExist(String phone, Integer userId) {
         return sysUserRepositoryImp.countByPhoneAndId(phone, userId.toString()) > 0;
     }

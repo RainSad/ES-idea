@@ -21,6 +21,11 @@ public class SysTreeService {
     @Autowired
     private SysDepartmentRepositoryImp sysDepartmentRepositoryImp;
 
+    /**
+     * 得到部门递归树
+     *
+     * @return
+     */
     public List<DeptLevelDto> deptTree() {
         Iterable<SysDepartment> deptList = sysDepartmentRepositoryImp.findAll();
 
